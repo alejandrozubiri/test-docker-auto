@@ -10,4 +10,5 @@ tasks:
     desc: "Despliega la aplicación en el servidor"
     cmds:
       - |
+        git push
         sshpass -f {{.PASSWORD}} ssh root@$SERVER 'bash -s' < script.sh $IMAGENAME $DOMAIN $PORT
