@@ -1,0 +1,13 @@
+version: "3"
+
+vars:
+  PASSWORD: .ssh/password
+
+dotenv: [".env"]
+
+tasks:
+  deploy:
+    desc: "Despliega la aplicación en el servidor"
+    cmds:
+      - |
+        sshpass -f {{.PASSWORD}} ssh root@$SERVER 'bash -s' < script.sh $IMAGENAME $DOMAIN $PORT
